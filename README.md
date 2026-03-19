@@ -9,7 +9,7 @@
 
 ### 1. Клонировать проект
 
-git clone `<repo_url>`
+git clone `https://github.com/ypklementev/dddlite.git`
 
 ### 2. Запустить через Docker
 
