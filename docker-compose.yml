@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - shared_data:/data
+    depends_on:
+      - redis
+
+  worker:
+    build: .
+    command: celery -A workers.celery_app.celery_app worker --loglevel=info
+    volumes:
+      - shared_data:/data
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7
+
+volumes:
+  shared_data:
